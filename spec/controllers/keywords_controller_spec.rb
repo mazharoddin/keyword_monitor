@@ -1,5 +1,4 @@
 require 'spec_helper'
 
-describe KeywordsController do
-
+describe API::KeywordsController do
 end

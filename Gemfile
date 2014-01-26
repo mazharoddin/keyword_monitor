@@ -13,6 +13,7 @@ gem 'haml-rails'
 gem 'pg'
 gem 'puma'
 gem 'angularjs-rails'
+gem 'inherited_resources'
 
 group :development do
   gem 'better_errors'
