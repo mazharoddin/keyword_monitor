@@ -25,6 +25,7 @@ KeywordMonitor::Application.configure do
   # Compress JavaScripts and CSS.
   #
   # AngularJS compatibility
+  # http://docs.angularjs.org/tutorial/step_05 > A Note on Minification
   config.assets.js_compressor = Uglifier.new(mangle: false)
   # config.assets.css_compressor = :sass
 

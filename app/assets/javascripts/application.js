@@ -4,4 +4,5 @@
 //= require angular
 //= require angular-resource
 //= require bootstrap
+//= require app
 //= require_tree .
