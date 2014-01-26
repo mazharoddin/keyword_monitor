@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ProjectsController do
-
+describe API::ProjectsController do
+  pending
 end
