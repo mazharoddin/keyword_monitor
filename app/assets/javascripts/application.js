@@ -3,6 +3,7 @@
 //= require turbolinks
 //= require angular
 //= require angular-resource
+//= require angular-xeditable/dist/js/xeditable
 //= require bootstrap
 //= require app
 //= require_tree .

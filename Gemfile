@@ -14,6 +14,7 @@ gem 'pg'
 gem 'puma'
 gem 'angularjs-rails'
 gem 'inherited_resources'
+gem 'bower-rails', '~> 0.6.1'
 
 group :development do
   gem 'better_errors'

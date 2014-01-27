@@ -1,10 +1,12 @@
 !!!
-%html
+%html(ng-app='app')
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : 'Keyword Monitor'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Keyword Monitor'}"}
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css", media: 'all'
+
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
