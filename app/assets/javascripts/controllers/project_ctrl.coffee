@@ -11,3 +11,7 @@ angular.module('app').controller 'ProjectCtrl', ($scope, Project) ->
   $scope.update = (project) ->
     @service.update project, {name: project.name}
 
+  $scope.delete = (project) ->
+    @service.delete project
+    $scope.projects.remove(project)
+

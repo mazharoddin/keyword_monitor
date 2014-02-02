@@ -5,13 +5,15 @@ angular.module('app').factory 'Project', ($resource) ->
         {id: '@id'},
         {update: {method: 'PUT'}})
 
-    create: (attrs) ->
-      new @service(project: attrs).$save (project) -> attrs.id = project.id
-      attrs
+    create: (project) ->
+      @service.save(project)
 
     all: ->
       @service.query()
 
-    update: (project, attrs) ->
-      new @service(project: attrs).$update {id: project.id}
+    update: (project) ->
+      @service.update({id: project.id}, project)
+
+    delete: (project) ->
+      @service.delete {id: project.id}
 

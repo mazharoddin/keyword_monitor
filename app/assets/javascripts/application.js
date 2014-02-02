@@ -5,5 +5,6 @@
 //= require angular-resource
 //= require angular-xeditable/dist/js/xeditable
 //= require bootstrap
+//= require sugar
 //= require app
 //= require_tree .

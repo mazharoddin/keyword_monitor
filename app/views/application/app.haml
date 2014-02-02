@@ -16,8 +16,9 @@
           %ul.list-group
             %li.list-group-item(ng-repeat='project in projects')
               .btn.btn-primary {{ project.name }}
-
-              .pull-right
-                = link_to '#', class: 'btn btn-default', 'onaftersave' => 'update(project)', 'editable-text' => 'project.name' do
-                  %span.glyphicon.glyphicon-edit
+              .actions.pull-right
+                %button.btn.btn-default(onaftersave='update(project)' editable-text='project.name')
+                  .glyphicon.glyphicon-edit
+                %button.btn.btn-default(ng-click='delete(project)')
+                  .glyphicon.glyphicon-trash
               .clearfix
