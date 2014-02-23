@@ -13,7 +13,7 @@ class RetrievePositionsJob
       end
 
     @keywords.each do |keyword|
-      keyword.craw_results << build_craw_result(@serp.get_position(keyword.name))
+      keyword.craw_results << build_craw_result(@serp.get_position(keyword.name, keyword.project.url))
     end
   end
 

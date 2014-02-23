@@ -6,9 +6,10 @@ module SerpChecker
       super host: HOST
     end
 
-    def get_position keyword
+    def get_position keyword, url
       logger.info "Getting \"#{keyword}\" position..."
       @keyword = keyword
+      @url     = url
       @results = []
 
       craw_result = crawl
@@ -63,7 +64,7 @@ module SerpChecker
     end
 
     def keyword_page_index
-      @results.index { |e| e =~ /houseinrio/ }
+      @results.index { |e| e =~ /#{@url}/ }
     end
 
     def page_results
