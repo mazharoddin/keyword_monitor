@@ -4,21 +4,34 @@
       .ng-cloak(ng-init='init()')
         %h1 Projetos
 
-        %hr
-        %form.form-inline(ng-submit='create()')
-          .form-group
-            %label.sr-only Nome
-            %input.form-control(type='text' ng-model='project.name')
-          %input.btn.btn-default(type='submit' value='Novo')
-
         #project-list
           %hr
           %ul.list-group
-            %li.list-group-item(ng-repeat='project in projects')
+            %li.list-group-item(ng-repeat='project in projects | orderBy:"name"')
               %a.btn.btn-primary(href='#/projects/{{project.id}}/keywords') {{ project.name }}
               .actions.pull-right
-                %button.btn.btn-default(onaftersave='update(project)' editable-text='project.name')
+                %button.btn.btn-default(ng-click='isEditFormOpen = !isEditFormOpen')
                   .glyphicon.glyphicon-edit
                 %button.btn.btn-default(ng-click='delete(project)')
                   .glyphicon.glyphicon-trash
+              %form(ng-submit='update(project); isEditFormOpen = false' ng-show='isEditFormOpen')
+                .form-group
+                  %label.sr-only Nome
+                  %input.form-control.input-sm(type='text' ng-model='project.name' placeholder='Nome')
+                .form-group
+                  %label.sr-only URL
+                  %input.form-control.input-sm(type='text' ng-model='project.url' placeholder='URL')
+                %input.btn.btn-default.btn-sm(type='submit' value='Atualizar')
               .clearfix
+
+        %hr
+
+        .row
+          .col-sm-12
+            %form.form-inline(ng-submit='create()')
+              .form-group
+                %label.sr-only Nome
+                .input-group
+                  %input.form-control(type='text' ng-model='project.name')
+                  %span.input-group-btn
+                    %input.btn.btn-default(type='submit' value='+')

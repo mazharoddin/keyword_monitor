@@ -3,20 +3,8 @@
     .col-sm-12
       .ng-cloak(ng-init='init()')
         %h1 {{ project.name }}
+
         %hr
-
-        .row
-          .col-sm-3
-            %form.form-inline(ng-submit='create()')
-              .form-group
-                %label.sr-only Keyword
-                %input.form-control(type='text' ng-model='keyword.name')
-              %input.btn.btn-default(type='submit' value='Novo')
-            %hr
-          .col-sm-offset-8.col-sm-1
-            .btn.btn-default.btn-lg.hide(ng-click='updatePositions()')
-              .glyphicon.glyphicon-refresh(ng-class='{working: isUpdatingPositions}')
-
         #keyword-list
           %ul.list-group
             %li.list-group-item(ng-repeat='keyword in keywords')
@@ -35,3 +23,16 @@
                         {{ craw_result.position || craw_result.status }}
                       .date
                         {{ craw_result.created_at | date:'short' }}
+
+        %hr
+
+        .row
+          .col-sm-4.col-sm-offset-8
+            %form.form-inline(ng-submit='create()')
+              .form-group
+                %label.sr-only Keyword
+                .input-group
+                  %input.form-control(type='text' ng-model='keyword.name')
+                  %span.input-group-btn
+                    %input.btn.btn-default(type='submit' value='+')
+

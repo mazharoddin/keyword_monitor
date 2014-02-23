@@ -9,7 +9,7 @@ angular.module('app').controller 'ProjectCtrl', ($scope, Project) ->
     $scope.project = {}
 
   $scope.update = (project) ->
-    @service.update project, {name: project.name}
+    @service.update project, {name: project.name, url: project.url}
 
   $scope.delete = (project) ->
     @service.delete project

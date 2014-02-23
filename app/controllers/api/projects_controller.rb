@@ -4,6 +4,6 @@ class API::ProjectsController < InheritedResources::Base
 private
 
   def permitted_params
-    params.permit(project: [:name])
+    params.permit(project: [:name, :url])
   end
 end
