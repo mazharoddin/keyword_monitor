@@ -17,21 +17,20 @@
               %form(ng-submit='update(project); isEditFormOpen = false' ng-show='isEditFormOpen')
                 .form-group
                   %label.sr-only Nome
-                  %input.form-control.input-sm(type='text' ng-model='project.name' placeholder='Nome')
+                  %input.form-control.input-sm(type='text' ng-model='project.name' placeholder='Nome' required)
                 .form-group
                   %label.sr-only URL
-                  %input.form-control.input-sm(type='text' ng-model='project.url' placeholder='URL')
+                  %input.form-control.input-sm(type='text' ng-model='project.url' placeholder='URL' required)
                 %input.btn.btn-default.btn-sm(type='submit' value='Atualizar')
               .clearfix
 
         %hr
 
-        .row
-          .col-sm-12
-            %form.form-inline(ng-submit='create()')
-              .form-group
-                %label.sr-only Nome
-                .input-group
-                  %input.form-control(type='text' ng-model='project.name')
-                  %span.input-group-btn
-                    %input.btn.btn-default(type='submit' value='+')
+        %form(ng-submit='create()')
+          .form-group
+            %label.sr-only Nome
+            %input.form-control(type='text' ng-model='project.name' placeholder='Nome' required)
+          .form-group
+            %label.sr-only URL
+            %input.form-control(type='text' ng-model='project.url' placeholder='URL' required)
+          %input.btn.btn-default(type='submit' value='Novo')
