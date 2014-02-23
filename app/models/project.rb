@@ -1,6 +1,6 @@
 class Project < ActiveRecord::Base
   has_many :keywords
 
-  validates :name, presence: true
-  validates :name, uniqueness: true
+  validates :name, :url, presence: true
+  validates :name, :url, uniqueness: true
 end
