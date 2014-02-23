@@ -3,7 +3,11 @@ KeywordMonitor::Application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     resources :projects do
-      resources :keywords
+      resources :keywords do
+        collection do
+          get :update_positions
+        end
+      end
     end
   end
 end

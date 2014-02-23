@@ -14,4 +14,16 @@ describe 'Keyword flows' do
       'name'       => 'term',
       'project_id' => project.id)}
   end
+
+  describe 'Request a collection as JSON' do
+    let!(:keyword)     { create(:keyword) }
+
+    before do
+      xhr :get, "/api/projects/#{keyword.project.id}/keywords"
+    end
+
+    it 'includes craw results' do
+      expect(json_response.first['craw_results']).to eq []
+    end
+  end
 end

@@ -1,4 +1,4 @@
-angular.module('app').factory 'Project', ($resource) ->
+angular.module('app').factory 'Project', ($resource, $routeParams) ->
   class Project
     constructor: ->
       @service = $resource('/api/projects/:id',
@@ -11,9 +11,11 @@ angular.module('app').factory 'Project', ($resource) ->
     all: ->
       @service.query()
 
-    update: (project) ->
-      @service.update({id: project.id}, project)
+    get: (id) ->
+      @service.get(id: id)
+
+    update: (project, attrs) ->
+      @service.update({id: project.id}, attrs)
 
     delete: (project) ->
-      @service.delete {id: project.id}
-
+      @service.delete({id: project.id})

@@ -1,0 +1,27 @@
+# The main application module.
+app = angular.module('app', ['ngResource', 'ngRoute', 'xeditable', 'ui.bootstrap'])
+
+app.config ($httpProvider, $routeProvider) ->
+  # To make forms work in AngularJS.
+  authToken = $("meta[name=\"csrf-token\"]").attr("content")
+  $httpProvider.defaults.headers.common["X-CSRF-TOKEN"] = authToken
+
+  $routeProvider
+    .when('/', {
+        templateUrl: '/assets/projects.html',
+        controller: 'ProjectCtrl'
+      })
+    .when('/projects/:id/keywords', {
+        templateUrl: '/assets/keywords.html',
+        controller: 'KeywordCtrl'
+      })
+
+app.run (editableOptions) ->
+  editableOptions.theme = 'bs3'
+
+# This will make sure the AngularJS application is properly initialized each
+# time a turbolink does its fetch&replace magic.
+$(document).on 'page:load', ->
+  $('[ng-app]').each ->
+    module = $(this).attr('ng-app')
+    angular.bootstrap(this, [module])

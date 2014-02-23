@@ -1,0 +1,24 @@
+%section.container
+  .row
+    .col-sm-5.col-lg-4
+      .ng-cloak(ng-init='init()')
+        %h1 Projetos
+
+        %hr
+        %form.form-inline(ng-submit='create()')
+          .form-group
+            %label.sr-only Nome
+            %input.form-control(type='text' ng-model='project.name')
+          %input.btn.btn-default(type='submit' value='Novo')
+
+        #project-list
+          %hr
+          %ul.list-group
+            %li.list-group-item(ng-repeat='project in projects')
+              %a.btn.btn-primary(href='#/projects/{{project.id}}/keywords') {{ project.name }}
+              .actions.pull-right
+                %button.btn.btn-default(onaftersave='update(project)' editable-text='project.name')
+                  .glyphicon.glyphicon-edit
+                %button.btn.btn-default(ng-click='delete(project)')
+                  .glyphicon.glyphicon-trash
+              .clearfix

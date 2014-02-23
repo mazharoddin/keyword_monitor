@@ -1,4 +1,40 @@
+@import "shared"
+
 #project-list
   form.editable-text
     position: absolute
     left: 15px
+
+#keyword-list
+  .actions
+    margin-right: 10px
+
+  ul.positions
+    padding-left: 0
+    list-style: none
+
+    li
+      display: inline-block
+      width: 95px
+      padding: 0 4px
+      text-align: center
+      border-left: 1px solid lighten(black, 90%)
+
+      &:first-child
+        border-left: none
+
+      .index
+        font-size: 16px
+        font-weight: bold
+
+      .date
+        font-size: 10px
+
+@-webkit-keyframes rotating
+  from
+    -webkit-transform: rotate(0deg)
+  to
+    -webkit-transform: rotate(360deg)
+
+.glyphicon-refresh.working
+  +animation(rotating 2s linear infinite)

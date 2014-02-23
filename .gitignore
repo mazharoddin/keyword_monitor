@@ -50,7 +50,6 @@ db/*.sqlite3
 /capybara-*.html
 /gems
 /specifications
-/vendor/assets/bower_components
 rerun.txt
 pickle-email-*.html
 .zeus.sock

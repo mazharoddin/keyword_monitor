@@ -1,0 +1,37 @@
+%section.container
+  .row
+    .col-sm-12
+      .ng-cloak(ng-init='init()')
+        %h1 {{ project.name }}
+        %hr
+
+        .row
+          .col-sm-3
+            %form.form-inline(ng-submit='create()')
+              .form-group
+                %label.sr-only Keyword
+                %input.form-control(type='text' ng-model='keyword.name')
+              %input.btn.btn-default(type='submit' value='Novo')
+            %hr
+          .col-sm-offset-8.col-sm-1
+            .btn.btn-default.btn-lg.hide(ng-click='updatePositions()')
+              .glyphicon.glyphicon-refresh(ng-class='{working: isUpdatingPositions}')
+
+        #keyword-list
+          %ul.list-group
+            %li.list-group-item(ng-repeat='keyword in keywords')
+              .row
+                .col-sm-5.col-lg-4
+                  .actions.pull-left
+                    %button.btn.btn-default(ng-click='delete(keyword)')
+                      .glyphicon.glyphicon-trash
+                  %a.btn.btn-primary.disabled {{ keyword.name }}
+                  .clearfix
+
+                .col-sm-7.col-lg-8
+                  %ul.positions
+                    %li(ng-repeat='craw_result in keyword.craw_results')
+                      .index(tooltip='{{craw_result.url || "no URL"}}')
+                        {{ craw_result.position || craw_result.status }}
+                      .date
+                        {{ craw_result.created_at | date:'short' }}

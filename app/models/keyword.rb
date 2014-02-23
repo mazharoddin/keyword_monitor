@@ -1,5 +1,6 @@
 class Keyword < ActiveRecord::Base
   belongs_to :project
+  has_many :craw_results, dependent: :destroy
 
-  serialize :positions, Array
+  validates :name, uniqueness: true
 end
