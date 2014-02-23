@@ -54,7 +54,7 @@ module SerpChecker
 
         # Return position if keyword was found
         if idx = keyword_page_index
-          take_screenshot
+          # take_screenshot
           return [:found, idx + 1, @results[idx]]
         end
       end

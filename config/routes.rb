@@ -9,5 +9,7 @@ KeywordMonitor::Application.routes.draw do
         end
       end
     end
+
+    get 'update_keywords_positions' => 'keywords#update_positions'
   end
 end
