@@ -1,7 +1,7 @@
 task retrieve_keywords_positions: :environment do
   base =
     if Rails.env.production?
-      'http://keyword-monitor.herokuapp.com'
+      '--user polomarte:paulomarcio http://keyword-monitor.herokuapp.com'
     else
       'http://localhost:3000'
     end
