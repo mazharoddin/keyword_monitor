@@ -4,7 +4,7 @@ module SerpChecker
 
     PAGE_LIMIT            = 6
     MAX_ATTEMPTS_PER_PAGE = 3
-    REQUEST_INTERVAL      = 7
+    REQUEST_INTERVAL      = 10
 
     attr_reader :logger
 
