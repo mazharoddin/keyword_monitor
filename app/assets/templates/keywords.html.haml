@@ -17,7 +17,7 @@
 
         #keyword-list
           %ul.list-group
-            %li.list-group-item(ng-repeat='keyword in keywords')
+            %li.list-group-item(ng-repeat='keyword in keywords | orderBy:"name"')
               .row
                 .col-sm-5.col-lg-4
                   .actions.pull-left
