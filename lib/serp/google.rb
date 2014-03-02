@@ -12,9 +12,9 @@ module SerpChecker
       @url     = url
       @results = []
 
-      craw_result = crawl
-      logger.info "result: #{craw_result}"
-      craw_result
+      crawl_result = crawl
+      logger.info "result: #{crawl_result}"
+      crawl_result
     end
 
   private

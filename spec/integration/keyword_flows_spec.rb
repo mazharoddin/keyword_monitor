@@ -22,8 +22,8 @@ describe 'Keyword flows' do
       xhr :get, "/api/projects/#{keyword.project.id}/keywords"
     end
 
-    it 'includes craw results' do
-      expect(json_response.first['craw_results']).to eq []
+    it 'includes crawl results' do
+      expect(json_response.first['crawl_results']).to eq []
     end
   end
 end

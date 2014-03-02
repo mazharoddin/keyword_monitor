@@ -18,11 +18,11 @@
 
                 .col-sm-7.col-lg-8
                   %ul.positions
-                    %li(ng-repeat='craw_result in keyword.craw_results')
-                      .index(tooltip='{{craw_result.url || "no URL"}}')
-                        {{ craw_result.position || craw_result.status }}
+                    %li(ng-repeat='crawl_result in keyword.crawl_results')
+                      .index(tooltip='{{crawl_result.url || "no URL"}}')
+                        {{ crawl_result.position || crawl_result.status }}
                       .date
-                        {{ craw_result.created_at | date:'short' }}
+                        {{ crawl_result.created_at | date:'short' }}
 
         %hr
 

@@ -13,17 +13,17 @@ class RetrievePositionsJob
       end
 
     @keywords.each do |keyword|
-      keyword.craw_results << build_craw_result(@serp.get_position(keyword.name, keyword.project.url))
+      keyword.crawl_results << build_crawl_result(@serp.get_position(keyword.name, keyword.project.url))
     end
   end
 
 private
 
-  def build_craw_result result
+  def build_crawl_result result
     if result.is_a? Array
-      CrawResult.new status: result[0], position: result[1], url: result[2]
+      CrawlResult.new status: result[0], position: result[1], url: result[2]
     else
-      CrawResult.new status: result
+      CrawlResult.new status: result
     end
   end
 end

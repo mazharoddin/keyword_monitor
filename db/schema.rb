@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223181552) do
+ActiveRecord::Schema.define(version: 20140302200709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "craw_results", force: true do |t|
+  create_table "crawl_results", force: true do |t|
     t.string   "status"
     t.integer  "position"
     t.string   "url"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140223181552) do
     t.datetime "updated_at"
   end
 
-  add_index "craw_results", ["keyword_id"], name: "index_craw_results_on_keyword_id", using: :btree
+  add_index "crawl_results", ["keyword_id"], name: "index_crawl_results_on_keyword_id", using: :btree
 
   create_table "keywords", force: true do |t|
     t.string   "name"
