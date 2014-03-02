@@ -2,9 +2,7 @@ module SerpChecker
   class Base
     include Capybara::DSL
 
-    PAGE_LIMIT            = 6
     MAX_ATTEMPTS_PER_PAGE = 3
-    REQUEST_INTERVAL      = 10
 
     attr_reader :logger
 
@@ -27,10 +25,11 @@ module SerpChecker
     end
 
     def define_viewport_sizing
-      page.driver.resize_window(850, 1800)
+      page.driver.resize_window(850, 10000)
     end
 
-    def timer seconds
+    def timer opts={}
+      seconds = opts[:blocked] ? (30 * 60) : Random.rand(15..25)
       Timer.new seconds
     end
   end
