@@ -32,5 +32,5 @@
                       .index(tooltip='{{crawl_result.url || "no URL"}}')
                         {{ crawl_result.position || crawl_result.status }}
                       .date
-                        {{ crawl_result.created_at | date:'short' }}
+                        {{ crawl_result.created_at | date:'dd-MM-yy' }}
 
