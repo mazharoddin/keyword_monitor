@@ -57,7 +57,6 @@ module SerpChecker
 
       # Return position if keyword was found
       if idx = keyword_page_index
-        # take_screenshot
         return [:found, idx + 1, @results[idx]]
       end
 
@@ -69,7 +68,7 @@ module SerpChecker
     end
 
     def page_results
-      all('#search cite').map { |item| item.text }
+      all('#search h3 > a').map { |item| item['href'] }
     end
 
     def blocked?
