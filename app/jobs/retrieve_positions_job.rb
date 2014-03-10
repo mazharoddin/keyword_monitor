@@ -2,19 +2,21 @@ class RetrievePositionsJob
   include SuckerPunch::Job
 
   def perform project=nil, keyword=nil
-    @serp = SerpChecker::Google.new
+    ActiveRecord::Base.connection_pool.with_connection do
+      @serp = SerpChecker::Google.new
 
-    @keywords =
-      case
-      when keyword.present? then [keyword]
-      when project.present? then project.keywords.all
-      else
-        Keyword.all
+      @keywords =
+        case
+        when keyword.present? then [keyword]
+        when project.present? then project.keywords.all
+        else
+          Keyword.all
+        end
+
+      @keywords.each do |keyword|
+        puts "Crawling #{keyword}..."
+        keyword.crawl_results << build_crawl_result(@serp.get_position(keyword.name, keyword.project.url))
       end
-
-    @keywords.each do |keyword|
-      puts "Crawling #{keyword}..."
-      keyword.crawl_results << build_crawl_result(@serp.get_position(keyword.name, keyword.project.url))
     end
   end
 
