@@ -13,6 +13,7 @@ class RetrievePositionsJob
       end
 
     @keywords.each do |keyword|
+      puts "Crawling #{keyword}..."
       keyword.crawl_results << build_crawl_result(@serp.get_position(keyword.name, keyword.project.url))
     end
   end
