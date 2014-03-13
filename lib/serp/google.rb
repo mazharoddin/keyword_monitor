@@ -45,7 +45,7 @@ module SerpChecker
             if last_attempt?
               return :blocked
             else
-              timer :blocked
+              timer({blocked: true})
               next
             end
           else
