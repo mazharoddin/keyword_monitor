@@ -29,7 +29,7 @@ module SerpChecker
     end
 
     def timer opts={}
-      seconds = opts[:blocked] ? (30 * 60) : Random.rand(15..25)
+      seconds = opts[:blocked] ? (30 * 60) : Random.rand(15..45)
       Timer.new seconds
     end
   end
